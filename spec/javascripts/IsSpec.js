@@ -77,4 +77,27 @@ describe("is", function() {
     })
   })
 
+    describe("empty", function() {
+        it("should recognize empty strings", function() {
+            expect(is("").empty()).toBe(true)
+        })
+        it("should recognize null objects", function() {
+            expect(is(null).empty()).toBe(true)
+        })
+        it("should recognize undefined objects", function() {
+            expect(is(undefined).empty()).toBe(true)
+        })
+        it("should recognize empty objects", function() {
+            expect(is({}).empty()).toBe(true)
+        })
+        it("should recognize empty arrays", function() {
+            expect(is([]).empty()).toBe(true)
+        })
+        it("should recognize non empties", function() {
+            expect(is("abc. its as easy as 123.").empty()).toBe(false)
+            expect(is([1]).empty()).toBe(false)
+            expect(is({a:"a"}).empty()).toBe(false)
+        })
+    })
+
 });

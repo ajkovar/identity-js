@@ -29,7 +29,28 @@
         return objectEquals(obj, other)
       } 
       return false
-    }
+    },
+      empty: function() {
+          var obj = this.o;
+          if(!obj) {
+              return true;
+          }
+          if(obj.constructor===Object) {
+              var count = 0;
+              for(var i in obj) {
+                  count++
+              }
+              if(count<=0) {
+                  return true
+              }
+          }
+          else if(obj.constructor===Array) {
+              if(obj.length<=0) {
+                  return true
+              }  
+          }
+          return false
+      }
   }
 
   var arrayEquals = function(a1, a2) {
